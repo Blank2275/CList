@@ -6,7 +6,7 @@ public class ListElement <Type>{
     }
 
     public void setNext(ListElement<Type> next){
-
+        this.next = next;
     }
 
 

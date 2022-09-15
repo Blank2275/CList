@@ -7,5 +7,11 @@ public class Main {
         squares.remove(2);
         squares.add(21 * 21);
         System.out.println(squares);
+        CList<String> dogNames = new CList<String>(new String[]{"Moose", "Nala", "Frisco", "Sasha", "Moose"});
+        System.out.println(dogNames);
+        dogNames.removeValue("Moose");
+        System.out.println(dogNames);
+
+
     }
 }

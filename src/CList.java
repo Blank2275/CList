@@ -24,6 +24,7 @@ public class CList <Type> {
         length++;
     }
     public Type get(int i){
+        if(i >= length || i < 0) throw new IndexOutOfBoundsException(String.format("index %s out of bounds for length %s", i, length));
         ListElement<Type> element = first.getItemNAhead(i);
         return element.getValue();
     }
@@ -51,6 +52,7 @@ public class CList <Type> {
 
 
     public void remove(int i){
+        if(i >= length || i < 0) throw new IndexOutOfBoundsException(String.format("index %s out of bounds for length %s", i, length));
         ListElement<Type> prior = first.getItemNAhead(i - 1);
         ListElement<Type> toRemove = first.getItemNAhead(i);
         ListElement<Type> next = first.getItemNAhead(i + 1);

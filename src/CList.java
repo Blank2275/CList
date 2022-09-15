@@ -54,6 +54,9 @@ public class CList <Type> {
         ListElement<Type> prior = first.getItemNAhead(i - 1);
         ListElement<Type> toRemove = first.getItemNAhead(i);
         ListElement<Type> next = first.getItemNAhead(i + 1);
+        if(i == 0){
+            first = next;
+        }
         if(prior != null){
             prior.setNext(next);
         }

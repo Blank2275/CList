@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         CList<Integer> squares = new CList<Integer>();
-        for(int i = 0; i <= 20; i++) {
+        for(int i = 0; i <= 2000; i++) {
             squares.add(i * i);
         }
         squares.remove(2);

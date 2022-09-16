@@ -19,13 +19,13 @@ public class CList <Type> {
         if(first == null){
             first = elementToAdd;
         } else {
-            first.addToEnd(elementToAdd);
+            getItemNAhead(length - 1).addToEnd(elementToAdd);
         }
         length++;
     }
     public Type get(int i){
         if(i >= length || i < 0) throw new IndexOutOfBoundsException(String.format("index %s out of bounds for length %s", i, length));
-        ListElement<Type> element = first.getItemNAhead(i);
+        ListElement<Type> element = getItemNAhead(i);
         return element.getValue();
     }
     public void removeValue(Type value){
@@ -50,12 +50,22 @@ public class CList <Type> {
 //        }
     }
 
+    private ListElement<Type> getItemNAhead(int n){
+        ListElement<Type> current = first;
+        while(n > 0){
+            if(current.next != null) current = current.next;
+            else return null;
+            n--;
+        }
+        return current;
+    }
+
 
     public void remove(int i){
         if(i >= length || i < 0) throw new IndexOutOfBoundsException(String.format("index %s out of bounds for length %s", i, length));
-        ListElement<Type> prior = first.getItemNAhead(i - 1);
-        ListElement<Type> toRemove = first.getItemNAhead(i);
-        ListElement<Type> next = first.getItemNAhead(i + 1);
+        ListElement<Type> prior = getItemNAhead(i - 1);
+        ListElement<Type> toRemove = getItemNAhead(i);
+        ListElement<Type> next = getItemNAhead(i + 1);
         if(i == 0){
             first = next;
         }

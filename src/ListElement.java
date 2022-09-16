@@ -25,13 +25,13 @@ public class ListElement <Type>{
             next = element;
         }
     }
-    public ListElement<Type> getItemNAhead(int n){
-        if(n == 0){
-            return this;
-        } else if(next != null){
-            return next.getItemNAhead(n - 1);
-        } else {
-            return null;
-        }
-    }
+//    public ListElement<Type> getItemNAhead(int n){
+//        if(n == 0){
+//            return this;
+//        } else if(next != null){
+//            return next.getItemNAhead(n - 1);
+//        } else {
+//            return null;
+//        }
+//    }
 }

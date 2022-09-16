@@ -28,6 +28,23 @@ public class CList <Type> {
         ListElement<Type> element = getItemNAhead(i);
         return element.getValue();
     }
+    public void insert(Type value, int i){
+        if(i < 0 || i > length) throw new IndexOutOfBoundsException(String.format("index %s out of bounds for length %s", i, length));
+        ListElement<Type> elementToAdd = new ListElement<Type>(value);
+
+        ListElement<Type> prior = getItemNAhead(i - 1);
+        ListElement<Type> current = getItemNAhead(i);
+
+        if(i == 0){
+            first = elementToAdd;
+        } else if(prior != null) {
+            prior.next = elementToAdd;
+            System.out.println(elementToAdd);
+        }
+
+        elementToAdd.next = current;
+        length++;
+    }
     public void removeValue(Type value){
         removeValueFunctionality(value, -1);
     }
